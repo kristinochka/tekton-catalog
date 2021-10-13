@@ -5,7 +5,7 @@ metadata:
   name: run-dbb-script
 spec:
   workspaces:
-    - name: workspace
+    - name: pipeline-ws
       description: A workspace where the Dockerfile is expected to be
       mountPath: /artifacts
   steps:
