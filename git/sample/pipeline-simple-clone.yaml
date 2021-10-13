@@ -34,6 +34,6 @@ spec:
           value: $(params.pipeline-debug)
     - name: run-dbb-script
       runAfter:
-        - git-clone-repo
+        - pipeline-simple-clone-task
       taskRef:
         name: run-dbb-script
