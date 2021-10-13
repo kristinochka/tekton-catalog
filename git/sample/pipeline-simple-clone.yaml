@@ -37,3 +37,5 @@ spec:
         - pipeline-simple-clone-task
       taskRef:
         name: run-dbb-script
+      workspaces:
+        - name: output

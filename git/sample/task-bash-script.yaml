@@ -5,11 +5,11 @@ metadata:
   name: run-dbb-script
 spec:
   workspaces:
-    - name: pipeline-ws
-      description: A workspace where the Dockerfile is expected to be
+    - name: output
+      description: The git repo will be cloned onto the volume backing this workspace
       mountPath: /artifacts
   steps:
-    - name: check-dockerfile
+    - name: run-dbb-script
       image: ibmcom/pipeline-base-image:2.6
       script: |
         #!/bin/bash
