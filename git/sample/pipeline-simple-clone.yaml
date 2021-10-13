@@ -32,3 +32,8 @@ spec:
           value: $(params.git-access-token)
         - name: pipeline-debug
           value: $(params.pipeline-debug)
+    - name: run-dbb-script
+      runAfter:
+        - git-clone-repo
+      taskRef:
+        name: run-dbb-script
