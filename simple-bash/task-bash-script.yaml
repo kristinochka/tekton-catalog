@@ -1,0 +1,18 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: run-dbb-script
+spec:
+  workspaces:
+    - name: workspace
+      description: A workspace where the Dockerfile is expected to be
+      mountPath: /artifacts
+  steps:
+    - name: check-dockerfile
+      image: ibmcom/pipeline-base-image:2.6
+      script: |
+        #!/bin/bash
+        echo "Running dbb build task now..."
+        echo $PWD
+        whoami
