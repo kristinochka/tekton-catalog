@@ -4,10 +4,6 @@ kind: Task
 metadata:
   name: run-dbb-script
 spec:
-  workspaces:
-    - name: output
-      description: The git repo will be cloned onto the volume backing this workspace
-      mountPath: /artifacts
   steps:
     - name: run-dbb-script
       image: ibmcom/pipeline-base-image:2.6
