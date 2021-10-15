@@ -18,6 +18,7 @@ spec:
         echo "Running dbb build task now..."
         echo $PWD
         echo $ls
+        ping -c 4 wazidev-demo-inf.fyre.ibm.com
         echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
         chmod 700 id_rsa
                 ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
