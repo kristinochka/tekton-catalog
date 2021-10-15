@@ -34,6 +34,8 @@ spec:
           value: $(params.git-access-token)
         - name: pipeline-debug
           value: $(params.pipeline-debug)
+          securityContext:
+            privileged: true
     - name: run-dbb-script
       runAfter:
         - pipeline-simple-clone-task
