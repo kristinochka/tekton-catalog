@@ -14,8 +14,8 @@ spec:
       default: ""
     - name: pipeline-debug
       default: "0"
-    # - name: zosSshKey
-    #   description: Key to login to zOS
+    - name: zosSshKey
+      description: Key to login to zOS
   workspaces:
     - name: pipeline-ws
   tasks:
@@ -39,3 +39,6 @@ spec:
         - pipeline-simple-clone-task
       taskRef:
         name: run-dbb-script
+      params:
+        - name: zosSshKey
+          value: $(params.zosSshKey)

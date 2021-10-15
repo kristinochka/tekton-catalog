@@ -7,7 +7,6 @@ spec:
   params:
     - name: zosSshKey
       description: The z/OS SSH private key
-      value: $(params.zosSshKey)
   steps:
     - name: run-dbb-script
       image: ibmcom/pipeline-base-image:2.6
