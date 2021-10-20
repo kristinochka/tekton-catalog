@@ -23,7 +23,7 @@ spec:
         # echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
         echo "Will try to ssh into wazidev-demo-inf.fyre.ibm.com"
         chmod 700 $ZOS_SSH_KEY
-        ssh -i $ZOS_SSH_KEY -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com -p 31652 "/u/ibmuser/myscript.sh"
+        ssh -i $ZOS_SSH_KEY -o "StrictHostKeyChecking=no" ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
         echo "ssh without they key"
-        ssh ibmuser@wazidev-demo-inf.fyre.ibm.com -p 31652 "/u/ibmuser/myscript.sh"
+        ssh ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
         whoami
