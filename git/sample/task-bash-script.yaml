@@ -25,5 +25,5 @@ spec:
         chmod 700 $ZOS_SSH_KEY
         ssh -i $ZOS_SSH_KEY -o "StrictHostKeyChecking=no" ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
         echo "ssh without they key"
-        ssh ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
+        ssh -vvv ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
         whoami
