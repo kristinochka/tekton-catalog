@@ -20,6 +20,11 @@ spec:
         echo $ls
         cat /etc/os-release
         whoami
+        apt-get update
+        apt-get install iputils-ping
+        sudo apt-get install inetutils-traceroute
+        traceroute 9.30.160.8
+        ping -c 4 9.30.160.8
         echo $ZOS_SSH_KEY > id_rsa
         chmod 700 id_rsa
         ssh -vvv -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
