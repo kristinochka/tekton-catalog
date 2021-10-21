@@ -21,4 +21,4 @@ spec:
         whoami
         echo $ZOS_SSH_KEY > id_rsa
         chmod 700 id_rsa
-        ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com -p 31652 "/u/ibmuser/myscript.sh"
+        ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
