@@ -33,7 +33,7 @@ spec:
         - name: REPOSITORY
           value: $(params.repository)
         - name: BRANCH
-          value: $(params.)
+          value: $(params.branch)
         - name: IBMCLOUD_API_KEY
           value: $(params.apikey)
         - name: ZOS_SSH_KEY
@@ -58,35 +58,10 @@ spec:
         #!/bin/bash
         echo $PWD
         whoami
-        # echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
         echo $ZOS_SSH_KEY > id_rsa
         chmod 700 id_rsa
-        ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
+        ssh -vvv -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
            -p 31652 "/u/ibmuser/myscript.sh
-        rc=$?
-        mkdir zoslog
-        cd zoslog
-        cd ..
-
-        if [ -z "$TOOLCHAIN_ID" ]; then
-          TOOLCHAIN_ID=$(jq -r '.toolchain_guid' /cd-config/toolchain.json)
-        fi
-        export TOOLCHAIN_ID=${TOOLCHAIN_ID} # for doi plugin
-
-        ibmcloud plugin install -f doi
-        ibmcloud login --apikey $IBMCLOUD_API_KEY --no-region
-        ibmcloud doi publishbuildrecord --logicalappname="$APP_NAME" --buildnumber="$BUILD_NUMBER"\
-              --branch="$GIT_BRANCH" --repositoryurl="$GIT_URL" --commitid="$GIT_COMMIT"\
-              --joburl="$JOB_URL" --status=pass
-
-
-        for file in $(find  zoslog -name "*.xml")
-        do
-          ibmcloud doi publishtestrecord --logicalappname="$APP_NAME" --buildnumber="$BUILD_NUMBER" --filelocation=$file --type=unittest
-        done
-
-        rm -f id_rsa
-
       volumeMounts:
         - mountPath: /cd-config
           name: cd-config-volume
