@@ -60,6 +60,10 @@ spec:
         whoami
         echo $ZOS_SSH_KEY > id_rsa
         chmod 700 id_rsa
+        cat /etc/os-release
+        whoami
+        sudo apt-get update
+        sudo apt-get install -y iputils-ping
         echo "About to ping"
         ping -c 4 9.30.160.8
         ping -c 4 wazidev-demo-inf.fyre.ibm.com
