@@ -17,15 +17,6 @@ spec:
       default: zopeneditor-sample
     - name: pipeline-debug
       default: "0"
-    - name: registryRegion
-      description: the ibmcloud registry region
-      default: us-south
-    - name: clusterRegion
-      description: The IBM Cloud Kubernetes cluster region
-      default: us-south
-    - name: clusterNamespace
-      description: The Kubernetes cluster namespace
-      default: prod
   workspaces:
     - name: pipeline-ws
   tasks:
