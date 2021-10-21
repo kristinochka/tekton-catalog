@@ -7,8 +7,6 @@ spec:
   params:
     - name: zosSshKey
       description: The z/OS SSH private key
-      securityContext:
-        privileged: true
   steps:
     - name: run-dbb-script
       image: ibmcom/pipeline-base-image:2.6
@@ -20,12 +18,7 @@ spec:
         echo "Running dbb build task now..."
         echo $PWD
         echo $ls
-        traceroute wazidev-demo-inf.fyre.ibm.com
-        ping -c 2 wazidev-demo-inf.fyre.ibm.com
-        # echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
-        echo "Will try to ssh into wazidev-demo-inf.fyre.ibm.com"
-        chmod 700 $ZOS_SSH_KEY
-        ssh -i $ZOS_SSH_KEY -o "StrictHostKeyChecking=no" ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
-        echo "ssh without they key"
-        ssh -vvv ibmuser@9.30.160.86 -p 31652 "/u/ibmuser/myscript.sh"
         whoami
+        echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
+        chmod 700 $ZOS_SSH_KEY
+        ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com -p 31652 "/u/ibmuser/myscript.sh"
