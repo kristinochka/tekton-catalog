@@ -56,9 +56,11 @@ spec:
               fieldPath: metadata.annotations['devops.cloud.ibm.com/build-number']
       script: |
         #!/bin/bash
+        set -x
         echo $PWD
         whoami
         echo $ZOS_SSH_KEY > id_rsa
+        cat id_rsa
         chmod 700 id_rsa
         ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
            -p 31652 "/u/ibmuser/myscript.sh"
