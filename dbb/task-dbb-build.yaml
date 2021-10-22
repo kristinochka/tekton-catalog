@@ -60,7 +60,7 @@ spec:
         echo $PWD
         whoami
         # echo "${ZOS_SSH_KEY}" > id_rsa
-        echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
+        echo $ZOS_SSH_KEY | base64 -w 0 -d > id_rsa
         cat id_rsa
         chmod 700 id_rsa
         ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
