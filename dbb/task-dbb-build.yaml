@@ -60,14 +60,7 @@ spec:
         whoami
         echo $ZOS_SSH_KEY > id_rsa
         chmod 700 id_rsa
-        cat /etc/os-release
-        whoami
-        sudo apt update
-        sudo apt install -y iputils-ping
-        echo "About to ping"
-        ping -c 4 9.30.160.8
-        ping -c 4 wazidev-demo-inf.fyre.ibm.com
-        ssh -vvv -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
+        ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
            -p 31652 "/u/ibmuser/myscript.sh"
       volumeMounts:
         - mountPath: /cd-config
