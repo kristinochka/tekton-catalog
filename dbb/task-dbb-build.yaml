@@ -63,6 +63,8 @@ spec:
         chmod 700 id_rsa
         ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
            -p 31652 "/u/ibmuser/myscript.sh"
+        rc=$?
+        mkdir my-test-zos
       volumeMounts:
         - mountPath: /cd-config
           name: cd-config-volume
