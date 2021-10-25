@@ -62,9 +62,8 @@ spec:
         echo $ZOS_SSH_KEY | base64 -w 0 --decode > id_rsa
         chmod 700 id_rsa
         ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
-           -p 31652 "/u/ibmuser/myscript.sh"
+           -p 31652 "/u/ibmuser/tekton/dbb-build.sh"
         rc=$?
-        mkdir my-test-zos
       volumeMounts:
         - mountPath: /cd-config
           name: cd-config-volume
