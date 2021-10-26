@@ -63,7 +63,7 @@ spec:
         chmod 700 id_rsa
         echo "Executing dbb full build"
         ssh -i id_rsa -o "StrictHostKeyChecking=no" ibmuser@wazidev-demo-inf.fyre.ibm.com\
-           -p 31652 "/u/ibmuser/tekton/dbb-build2.sh"
+           -p 31652 "/u/ibmuser/tekton/dbb-build3.sh"
         rc=$?
       volumeMounts:
         - mountPath: /cd-config
